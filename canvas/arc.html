@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>曲线的绘制</title>
+</head>
+<body style="width:100vw;height:100vh">
+	<canvas id="canvas" style="width:100vw;height:100vh"></canvas>
+</body>
+<script>
+	window.onload=function(){
+		var canvas =document.getElementById("canvas");
+		var cxt=canvas.getContext('2d');
+
+		canvas.width=document.body.clientWidth;
+		canvas.height=document.body.clientHeight;
+
+		fillRoundRect(cxt,100,100,500,500,10,"#bbada0");
+		for(var i=0;i<4;i++){
+			for(var j=0;j<4;j++){
+				fillRoundRect(cxt,120+120*j,120+120*i,100,100,6,"#ccc0b3");
+			}
+		}
+	}
+
+	function fillRoundRect(cxt,x,y,width,height,radiu,/*optional*/fillcolor){
+		if(2*radiu>width||2*radiu>height){
+			return;
+		}
+
+		cxt.save();
+		cxt.translate(x,y);
+
+		pathRoundRect(cxt,width,height,radiu);
+
+		cxt.fillStyle=fillcolor||'black';
+
+		cxt.fill();
+		cxt.restore();
+	}
+
+	function pathRoundRect(cxt,width,height,radiu){
+		cxt.beginPath();
+		cxt.arc(radiu,radiu,radiu,Math.PI,1.5*Math.PI);
+		cxt.lineTo(width-radiu,0);
+		cxt.arc(width-radiu,radiu,radiu,1.5*Math.PI,2*Math.PI);
+		cxt.lineTo(width,height -radiu);
+		cxt.arc(width-radiu,height-radiu,radiu,0,0.5*Math.PI);
+		cxt.lineTo(radiu,height);
+		cxt.arc(radiu,height-radiu,radiu,0.5*Math.PI,Math.PI);
+		cxt.lineTo(0,radiu);
+		cxt.closePath()
+	}
+</script>
+</html>

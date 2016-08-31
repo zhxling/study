@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.dialog_mask{
+				position:fixed;
+				top:0;
+				bottom:0;
+				right:0;
+				left:0;
+				z-index:100;
+				background:rgba(0,0,0,0.5);
+				text-align:center;
+				font-size:0;
+			}
+			.dialog_mask:after{
+				content:"";
+				display:inline-block;
+				height:100%;
+				vertical-align:middle;
+			}
+			.dialog{
+				font-size:16px;
+				background:#fff;
+				display:inline-block;
+				vertical-align:middle;
+				text-align:left;
+			}
+			.dialog_title{
+				border-bottom:2px blue solid;
+				padding:8px 10px;
+			}
+			.dialog_body{
+				padding:10px;
+			}
+			.dialog_btns{
+				padding:6px 10px;
+				border-top:2px solid blue;
+				text-align: justify;
+				font-size:0;
+			}
+			.dialog_btns:after{
+				content:"";
+				display:inline-block;
+				width:100%;
+				font-size:0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="dialog_mask">
+			<div class="dialog">
+				<div class="dialog_title">2323232</div>
+				<div class="dialog_body">
+					<form action="">
+						<div><input type="text" /></div>
+						<div><input type="text" /></div>
+						<div><input type="text" /></div>
+					</form>
+				</div>
+				<div class="dialog_btns">
+					<button>确定</button>
+					<button>取消</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

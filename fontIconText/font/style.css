@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'fonticon';
+    src:    url('fonts/fonticon.eot?67mvfd');
+    src:    url('fonts/fonticon.eot?67mvfd#iefix') format('embedded-opentype'),
+        url('fonts/fonticon.ttf?67mvfd') format('truetype'),
+        url('fonts/fonticon.woff?67mvfd') format('woff'),
+        url('fonts/fonticon.svg?67mvfd#fonticon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon_"], [class*=" icon_"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'fonticon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon_download:before {
+    content: "\e900";
+}
+.icon_file:before {
+    content: "\e901";
+}
+.icon_map:before {
+    content: "\e902";
+}
+.icon_location:before {
+    content: "\e903";
+}
+.icon_withdrawals:before {
+    content: "\e904";
+}
+.icon_warning:before {
+    content: "\e905";
+}
+.icon_verification:before {
+    content: "\e906";
+}
+.icon_wechat:before {
+    content: "\e907";
+}
+.icon_time:before {
+    content: "\e908";
+}
+.icon_user:before {
+    content: "\e909";
+}
+.icon_tag:before {
+    content: "\e90a";
+}
+.icon_search:before {
+    content: "\e90b";
+}
+.icon_scan:before {
+    content: "\e90c";
+}
+.icon_remind:before {
+    content: "\e90d";
+}
+.icon_release_1:before {
+    content: "\e90e";
+}
+.icon_release:before {
+    content: "\e90f";
+}
+.icon_task:before {
+    content: "\e910";
+}
+.icon_Qzone:before {
+    content: "\e911";
+}
+.icon_qq:before {
+    content: "\e912";
+}
+.icon_upload:before {
+    content: "\e913";
+}
+.icon_phone:before {
+    content: "\e914";
+}
+.icon_call:before {
+    content: "\e915";
+}
+.icon_purse:before {
+    content: "\e916";
+}
+.icon_password:before {
+    content: "\e917";
+}
+.icon_order:before {
+    content: "\e918";
+}
+.icon_money:before {
+    content: "\e919";
+}
+.icon_message:before {
+    content: "\e91a";
+}
+.icon_refuse:before {
+    content: "\e91b";
+}
+.icon_invitation:before {
+    content: "\e91c";
+}
+.icon_delete_1:before {
+    content: "\e91d";
+}
+.icon_delete:before {
+    content: "\e91e";
+}
+.icon_confirm:before {
+    content: "\e91f";
+}
+.icon_cancel:before {
+    content: "\e920";
+}
+.icon_accept:before {
+    content: "\e921";
+}
+.icon_address:before {
+    content: "\e922";
+}
+.icon_bank_card:before {
+    content: "\e923";
+}
+.icon_locate:before {
+    content: "\e924";
+}
+.icon_right:before {
+    content: "\e925";
+}
+.icon_wechat2:before {
+    content: "\e926";
+}
+.icon_qrcode:before {
+    content: "\e927";
+}
+.icon_alipay:before {
+    content: "\e928";
+}
+.icon_man:before {
+    content: "\e929";
+}
+.icon_woman:before {
+    content: "\e92a";
+}
+.icon_remark:before {
+    content: "\e92b";
+}
+.icon_complete:before {
+    content: "\e92c";
+}
+.icon_withdrawals_1:before {
+    content: "\e92d";
+}
+.icon_confirm_1:before {
+    content: "\e92e";
+}
+.icon_plus:before {
+    content: "\e92f";
+}
+.icon_icbc:before {
+    content: "\e930";
+}
+.icon_back:before {
+    content: "\e931";
+}
+

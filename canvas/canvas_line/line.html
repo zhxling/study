@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas线条</title>
+</head>
+<body style="height:100vh;width:100vw">
+	<canvas id="canvas" style="display:block">
+		当前浏览器不支持canvas,请换个浏览器试试
+	</canvas>
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		var canvas=document.getElementById("canvas");
+		var context=canvas.getContext("2d");
+
+		canvas.width=document.body.clientWidth;
+		canvas.height=document.body.clientHeight;
+
+		context.beginPath();
+		context.moveTo(100,350);
+		context.lineTo(400,350);
+		context.lineTo(400,250);
+		context.lineTo(500,400);
+		context.lineTo(400,550);
+		context.lineTo(400,450);
+		context.lineTo(100,450);
+		context.closePath();
+
+		context.lineWidth=10;
+		context.strokeStyle="#bbb";
+		context.fillStyle="red";
+
+		// 先填充颜色，再描边，边框就不会被填充的色块覆盖一部分
+		context.fill();
+		context.stroke();
+
+		context.beginPath();
+		context.rect(400,200,400,400);
+		context.closePath();
+
+		context.strokeStyle="rgba(0,234,0,0.5)";
+		context.fillStyle="rgba(6,89,245,0.5)";
+
+		context.fill();
+		context.stroke();
+
+		context.fillRect(50,0,100,100);
+		context.strokeRect(50,0,100,100);
+
+		context.beginPath();
+		context.moveTo(60,200);
+		context.lineTo(200,200);
+
+		
+		context.lineCap='round'; // 设置线条两端的样式,只能用于线条的开始和结尾处，不能用于线条的连接处,butt:默认无，square:正方形，round:半圆
+		context.strokeStyle="red";
+		context.lineWidth=10;
+
+		context.stroke();
+
+		drawStar(context,50,100,100,700,30)
+	}
+
+	function drawStar(cxt,r,R,x,y,rot){
+		cxt.beginPath();
+		for(var i=0;i<5;i++){
+			cxt.lineTo(Math.cos((18+i*72-rot)/180*Math.PI)*R+x,
+						-Math.sin((18+i*72-rot)/180*Math.PI)*R+y);
+			cxt.lineTo(Math.cos((54+i*72-rot)/180*Math.PI)*r+x,
+						-Math.sin((54+i*72-rot)/180*Math.PI)*r+y);
+		}
+		cxt.closePath();
+
+		cxt.fill();
+		cxt.stroke();
+	}
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas线条</title>
+</head>
+<body style="height:100vh;width:100vw">
+	<canvas id="canvas" style="display:block">
+		当前浏览器不支持canvas,请换个浏览器试试
+	</canvas>
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		var canvas=document.getElementById("canvas");
+		var context=canvas.getContext("2d");
+
+		canvas.width=document.body.clientWidth;
+		canvas.height=document.body.clientHeight;
+
+		// 使用图片作为背景色
+		// var backgroundImage=new Image();
+		// backgroundImage.src="../person.jpg";
+		// backgroundImage.onload=function(){
+		// 	var pattern=context.createPattern(backgroundImage,"repeat");
+		// 	context.fillStyle=pattern;
+
+		// 	context.fillRect(0,0,canvas.width,canvas.height);
+		// }
+
+		//使用canvas作为背景
+		var backgroundCanvas=craeteCanvasBack();
+		var pattern=context.createPattern(backgroundCanvas,"repeat");
+
+		context.fillStyle=pattern;
+		context.fillRect(0,0,canvas.width,canvas.height);
+	}
+
+	function drawStar(cxt,r,R,x,y,rot){
+		cxt.beginPath();
+		for(var i=0;i<5;i++){
+			cxt.lineTo(Math.cos((18+i*72-rot)/180*Math.PI)*R+x,
+						-Math.sin((18+i*72-rot)/180*Math.PI)*R+y);
+			cxt.lineTo(Math.cos((54+i*72-rot)/180*Math.PI)*r+x,
+						-Math.sin((54+i*72-rot)/180*Math.PI)*r+y);
+		}
+		cxt.closePath();
+
+		cxt.fill();
+		cxt.stroke();
+	}
+
+	function craeteCanvasBack(){
+		var canvas=document.createElement('canvas');
+		var context=canvas.getContext('2d');
+
+		canvas.width=100;
+		canvas.height=100;
+
+		context.fillStyle="red";
+		drawStar(context,25,50,50,50,0);
+
+		return canvas;
+
+	}
+</script>
+</html>

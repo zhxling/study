@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>H5本地储存</title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+// window.onload=function(){
+	var src="topBgImg.png";
+	function set(key){
+		var img=document.createElement('img');
+
+		// img.crossOrigin="*";
+
+		img.src=src;
+		// 当图片加载完成触发回调函数
+		img.addEventListener('load',function(){
+			imgCanvas=document.createElement('canvas');
+			imgContext=imgCanvas.getContext('2d');
+
+			//确保canvas元素的大小和图片尺寸一样
+			imgCanvas.width=this.width;
+			imgCanvas.height=this.height;
+
+			//渲染图片到canvas中
+			imgContext.drawImage(this,0,0,this.width,this.height);
+
+			//用data url的形式取出
+			var imgAsdataURL=imgCanvas.toDataURL("image/png");
+
+			//保存图片到本地存储
+			try{
+				localStorage.setItem(key,imgAsdataURL);
+			}
+			catch(e){
+				console.log("storage fail:" + e);
+			}
+		},false);	
+	}
+
+	function get(key){
+		var srcStr=localStorage.getItem(key);
+		var imgObj=document.createElement('img');
+		imgObj.src=srcStr;
+		document.body.appendChild(imgObj);
+	}
+
+	set('text');
+	get('text');
+// }
+</script>
+</html>

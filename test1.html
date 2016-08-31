@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angularjs的简单应用</title>
+	<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<style type="text/css">
+		h1{
+			font-size: 18px;
+		}
+	</style>
+</head>
+<body>
+	<div ng-controller="noteCtrl">
+		<h1>我的笔记</h1>
+		<textarea ng-model="note" rows="10" cols="40"></textarea>
+		<p>
+			<button ng-click="save()">保存</button>
+			<button ng-click="clear()">清除</button>
+		</p>
+		<p>剩余字数 <span ng-bind="left()"></span></p>
+	</div>
+</body>
+<script type="text/javascript">
+	angular.module("module",[])
+	.controller('noteCtrl', function($scope){
+		$scope.note='';
+		$scope.save=function(){
+			alert("note save!");
+		}
+		$scope.clear=function(){
+			$scope.note="";
+		}
+		$scope.left=function(){
+			return 100-$scope.note.length;
+		}
+	})
+
+	angular.bootstrap(document,['module']);
+</script>
+</html>

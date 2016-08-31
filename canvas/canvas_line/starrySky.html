@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas线条</title>
+</head>
+<body style="height:100vh;width:100vw">
+	<canvas id="canvas" style="display:block">
+		当前浏览器不支持canvas,请换个浏览器试试
+	</canvas>
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		var canvas=document.getElementById("canvas");
+		var context=canvas.getContext("2d");
+
+		canvas.width=document.body.clientWidth;
+		canvas.height=document.body.clientHeight;
+
+		// 渐变色
+		var skyStyle=context.createRadialGradient(canvas.width/2,canvas.height,0,canvas.width/2,canvas.height,canvas.height);
+		skyStyle.addColorStop(0.0,"#035");
+		skyStyle.addColorStop(1.0,"black");
+
+		context.fillStyle=skyStyle;
+		context.fillRect(0,0,canvas.width,canvas.height)
+
+		for(var i=0;i<200;i++){
+			var R=Math.random()*6+1;
+			var x=Math.random()*(canvas.width);
+			var y=Math.random()*(canvas.height * 0.6);
+			var rot=Math.random()*360;
+
+			drawStar(context,R,x,y,rot);
+		}
+	}
+
+	function drawStar(cxt,R,x,y,rot){
+		cxt.save();
+		cxt.translate(x,y);
+		cxt.rotate(rot/180*Math.PI);
+		cxt.scale(R,R);
+
+		starPath(cxt);
+
+		cxt.fillStyle="#F5D8AD";
+		// cxt.lineJoin="round";  //圆角
+
+		cxt.fill();
+
+		cxt.restore();
+	}
+
+	function starPath(cxt){
+		cxt.beginPath();
+		for(var i=0;i<5;i++){
+			cxt.lineTo(Math.cos((18+i*72)/180*Math.PI),
+						-Math.sin((18+i*72)/180*Math.PI));
+			cxt.lineTo(Math.cos((54+i*72)/180*Math.PI)*0.5,
+						-Math.sin((54+i*72)/180*Math.PI)*0.5);
+		}
+		cxt.closePath();
+	}
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>生成二维码实例</title>
+</head>
+<body>
+	<div id="qrcode_box"></div>
+</body>
+<script src="jquery-1.8.0.js"></script>
+<script src="utf.js"></script>
+<script src="jquery.qrcode.js"></script>
+<script type="text/javascript">
+
+	$("#qrcode_box").qrcode({
+		render:"canvas",
+		text:"786895790将恢复如果火箭",
+		width:"200",
+		height:"200",
+		src:"photo.jpg",
+		imgWidth:"30",
+		imgHeight:"30",
+	});
+
+</script>
+</html>

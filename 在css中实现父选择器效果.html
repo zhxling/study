@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子元素focus,容器边框高亮，父选择器效果</title>
+	<style type="text/css">
+	.container{
+		margin-top: 10px;
+		min-height: 120px;
+		position: relative;
+		z-index: 1;
+		padding: 10px;
+	}
+	.list{
+		font-size: 12px;
+		display: inline-block;
+		padding: 6px;
+		background-color: #f0f3f9;
+	}
+	.list:after{
+		content: "X";
+		padding-left: 6px;
+	}
+	.input{
+		border: none;
+		outline: 0;
+		padding: 6px;
+		background-color: none;
+		width: 80px;
+	}
+	.border{
+		/* 尺寸永远和容器一样大，假装是容器 */
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+		border: 1px solid #bbb;
+	}
+	.input:focus + .border{
+		/* 模拟父选择器效果精髓所在 */
+		border-color: #1271E0;
+	}
+	</style>
+</head>
+<body>
+	<h5><<青云志>>主演名单</h5>
+	<div class="container">
+		<span class="list">李易峰</span>
+		<span class="list">赵丽颖</span>
+		<span class="list">杨颖</span>
+		<input type="text" id="input" class="input">
+		<label class="border" for="input"></label>
+	</div>
+	<h5>实现原理，请点击下面的链接</h5>
+	<a href="http://www.zhangxinxu.com/wordpress/2016/08/css-parent-selector/">http://www.zhangxinxu.com/wordpress/2016/08/css-parent-selector/</a>
+</body>
+</html>
