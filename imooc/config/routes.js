@@ -2,6 +2,8 @@
 var Index=require('../app/controllers/index');
 var Movie=require('../app/controllers/movie');
 var User=require('../app/controllers/user');
+var Comment=require('../app/controllers/comment');
+var Category=require('../app/controllers/category');
 
 module.exports=function(app){
   //pre handle user
@@ -28,4 +30,12 @@ module.exports=function(app){
   app.post('/admin/movie/new', User.signinRequired ,  User.adminRequired , Movie.save);
   app.get('/admin/update/:id', User.signinRequired , User.adminRequired , Movie.update);
   app.delete('/admin/list/delete', User.signinRequired , User.adminRequired , Movie.del);
+
+  //comment
+  app.post('/user/comment' , User.signinRequired , Comment.save);
+
+  //category
+  app.get('/admin/category',User.signinRequired,User.adminRequired,Category.new);
+  app.post('/admin/category/new', User.signinRequired , User.adminRequired ,Category.save);
+  app.get('/admin/category/list', User.signinRequired , User.adminRequired , Category.list);
 }
